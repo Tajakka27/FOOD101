@@ -854,6 +854,10 @@ ol {
 	opacity: 1;
 }
 
+.col-lg-12 
+{
+
+}
 .featured__controls ul li:after {
 	position: absolute;
 	left: 0;
@@ -1030,14 +1034,14 @@ ol {
 }
 
 .latest-product__item__text h6 {
-	color: #252525;
+	color: white;
 	margin-bottom: 8px;
 }
 
 .latest-product__item__text span {
 	font-size: 18px;
 	display: block;
-	color: #252525;
+	color: whitesmoke;
 	font-weight: 700;
 }
 
@@ -1397,7 +1401,7 @@ ol {
 
 .product__discount__item__text span {
 	font-size: 14px;
-	color: #b2b2b2;
+	color: whitesmoke;
 	display: block;
 	margin-bottom: 4px;
 }
@@ -1407,12 +1411,12 @@ ol {
 }
 
 .product__discount__item__text h5 a {
-	color: #1c1c1c;
+	color: whitesmoke;
 }
 
 .product__discount__item__text .product__item__price {
 	font-size: 18px;
-	color: #1c1c1c;
+	color: white;
 	font-weight: 700;
 }
 
@@ -1640,7 +1644,7 @@ ol {
 }
 
 .product__item__text h6 a {
-	color: #252525;
+	color: whitesmoke;
 }
 
 .product__item__text h5 {
@@ -1709,7 +1713,7 @@ ol {
 }
 
 .product__details__text h3 {
-	color: #252525;
+	color: whitesmoke;
 	font-weight: 700;
 	margin-bottom: 16px;
 }
@@ -2339,7 +2343,7 @@ ol {
 
 .blog__item__text h5 a {
 	font-size: 20px;
-	color: #1c1c1c;
+	color: whitesmoke;
 	font-weight: 700;
 }
 
@@ -2356,7 +2360,7 @@ ol {
 .blog__item__text .blog__btn {
 	display: inline-block;
 	font-size: 14px;
-	color: #1c1c1c;
+	color: whitesmoke;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	border: 1px solid #b2b2b2;
@@ -2472,8 +2476,8 @@ ol {
 }
 
 .blog__sidebar__recent__item__pic {
-	float: left;
-	margin-right: 20px;
+	float: center;
+	margin-right: 10%;
 }
 
 .blog__sidebar__recent__item__text {

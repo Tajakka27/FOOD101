@@ -2,6 +2,7 @@
 <html lang="zxx">
 
 <head>
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
@@ -23,6 +24,22 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
+<script src="js/main.js"></script>
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyChz5Q6Vm-LIwa8Pp95e2ZLrkDCQgbAaKE",
+    authDomain: "food-101-48c02.firebaseapp.com",
+    databaseURL: "https://food-101-48c02-default-rtdb.firebaseio.com",
+    projectId: "food-101-48c02",
+    storageBucket: "food-101-48c02.appspot.com",
+    messagingSenderId: "1001586642471",
+    appId: "1:1001586642471:web:735b598acb6d0bf9780802",
+    measurementId: "G-43BQWNLV3V"
+  };
+
+  // Initialize Firebase
+   firebase.initializeApp(firebaseConfig);
+</script>
 
 <body>
     <!-- Page Preloder -->
@@ -87,6 +104,98 @@
     </div>
 </div>
 <!-- Humberger End -->
+
+<script>
+    
+
+
+    
+      function view2(_n, _e, _m) {
+        var a = document.getElementById("yo");
+        var div = document.createElement("div");
+
+        div.style.padding = "10px";
+        div.style.margin = "10px";
+        div.style.backgroundColor = "rgb(255,255,255)";
+        div.style.borderRadius = "2%";
+
+        div.innerHTML = `<h4 style='color: blue; font-weight: bolder; "font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"'>${_n}</h4> <h6 style='color: black; font-size: medium'> ${_m}<br></h6>`;
+        a.appendChild(div);
+        }
+
+        function view2(_n, _e, _m) {
+        var a = document.getElementById("yo");
+        var div = document.createElement("div");
+
+        div.style.padding = "10px";
+        div.style.margin = "10px";
+        div.style.backgroundColor = "rgb(255,255,255)";
+        div.style.borderRadius = "2%";
+
+        div.innerHTML = `<h4 style='color: chocolate; font-weight: bolder; "font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"'>${_n}</h4> <h6 style='color: black; font-size: medium'> ${_m}<br></h6>`;
+        a.appendChild(div);
+        }
+
+        
+        function view() {
+        firebase
+            .database()
+            .ref("User/")
+            .once("value")
+            .then(
+            function (snapshot) {
+                snapshot.forEach(function (child) {
+                var n = child.val().name;
+                var e = child.val().email;
+                var m = child.val().comment;
+                view2(n, e, m);
+                });
+            },
+            function (error) {
+                if (error) {
+                } else {
+                }
+            }
+            );
+}
+
+
+        function show() {
+
+        var name = document.getElementById("name").value;
+        var email= document.getElementById("email").value;
+        var comment= document.getElementById("comment").value;
+
+
+        if(name=="" || email==""||comment=="")
+        {
+            alert('ERROR! Provide all information');
+        }
+        else
+        {
+            firebase.database().ref('User/' + name).set({
+            name : name,
+            email : email,
+            comment :comment
+            }, function(error) {
+            if (error) {
+                // The write failed...
+            } else {
+                view();
+                document.getElementById("name").value="";
+                document.getElementById("email").value="";
+                document.getElementById("comment").value="";
+                alert('Done!');
+                location.reload();
+                
+            
+            }
+            });
+        }
+        }
+        view();
+</script>
+
 
 
     <!-- Header Section Begin -->
@@ -170,6 +279,8 @@
     </header>
     <!-- Header Section End -->
 
+    
+
     <!-- Hero Section Begin -->
     <section class="hero hero-normal">
         <div class="container">
@@ -218,6 +329,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </section>
@@ -236,14 +348,14 @@
                             </div>
                         </div>
             </div> -->
-            <div class="hero__item set-bg"  data-setbg="img/hero/beefc.jpg" >
+            <!-- <div class="hero__item set-bg"  data-setbg="img/hero/beefc.jpg" >
                 <div class="hero__text">
-                    <!-- <p style="color: gray;" >Welcome to <br />FOOD 101</p> -->
+                    <p style="color: gray;" >Welcome to <br />FOOD 101</p> 
                     <h2>BEEF CURRY</h2>
-                    <!-- <span style="color: black;">Order Food</span><br><br>
-                    <a href="#" class="primary-btn" style="background-color: #bf6d43;">ORDER NOW</a> -->
+                     <span style="color: black;">Order Food</span><br><br>
+                    <a href="#" class="primary-btn" style="background-color: #bf6d43;">ORDER NOW</a> 
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
     <!-- Breadcrumb Section End -->
@@ -256,7 +368,7 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="img/hero/beefc.jpg" alt="">
+                                src="img/blog/cat-5_me.jpg" alt="">
                         </div>
                         <!-- <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl="img/product/details/product-details-2.jpg"
@@ -272,14 +384,14 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
-                        <h3>BEEF CURRY</h3>
+                        <h3>Easy ways to make homemade mojitos</h3>
                         <div class="product__details__rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-o"></i>
-                            <span>(18 reviews)</span>
+                            <span>(3 reviews)</span>
                         </div>
                         <!-- <div class="product__details__price">$50.00</div> -->
                     <p>
@@ -340,13 +452,13 @@
                             </li> -->
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                                    aria-selected="false">Reviews <span>(1)</span></a>
+                                    aria-selected="false">comments <span>(3)</span></a>
                             </li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>Recipe</h6>
+                                    <!-- <h6>Recipe</h6> -->
                                     <p>To cook beef over stove top, place diced beef, onions, garlic, ginger, ground turmeric, ground coriander, garam masala and red chili powder in a large frying pan. Season with salt. Cover with water. Cook for 1 hour or until beef is tender
                                         (To cook in a pressure cooker, place diced beef, sliced onions, garlic, ginger, ground turmeric, ground coriander, garam masala, red chili powder and coconut slices (if using) in a pressure cooker. Season with salt. Stir to combine. Cook, covered, until 5-6 whistles. Remove from heat. Release pressure. Set aside.)
                                         Heat oil in a large frying pan over medium-high heat. Add mustard seeds and allow to splutter. Add bay leaves and cinnamon stick. Sauté, stirring constantly, for few seconds. Add onions. Sauté, stirring occasionally, for 3-4 minutes or until browned.
@@ -358,41 +470,73 @@
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                        Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                        sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                        eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                        sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                        diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                        Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                        Proin eget tortor risus.</p>
-                                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+                                    <!-- <h6>Products Infomation</h6> -->
+                                    <p>
+                                       
+                                    </p>
+                                    
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                        Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                        sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                        eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                        sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                        diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                        Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                        Proin eget tortor risus.</p>
+                                    <div class="contact-form spad">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="contact__form__title">
+                                                        <h2 style="color: blanchedalmond;padding-right: 10%;">Leave a Comment</h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-6">
+                                                        <input type="text" placeholder="Your name" id="name" align="right" style="width: 70%;height: 100%;">
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6" >
+                                                        <input type="text" placeholder="Your Email" id="email" style="width: 80%;height: 100%;">
+                                                    </div>
+                                                    <br><br><br>
+                                                    <div class="col-lg-12" >
+                                                        <br><br>
+                                                        <textarea placeholder="Your Comment" id="comment" style="width:90%; height: 70%; "  ></textarea>
+                                                        <!--<button type="submit" onclick="show()" class="site-btn" style="background-color: chocolate;">SEND COMMENT</button>-->
+                                                    </div>
+
+                                                    <div style="align-self: center;padding-left: 40%;">
+                                                        <br><br>
+                                                        <input class="btn btn-primary" onclick="show()" type="submit" value="Leave Message" style="background-color: chocolate; border: chocolate;">
+                                                    </div>
+                                                </div>
+                                            
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
+                            <section>
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                            
+                                      <div show();  >
+                                        
+                                        <div class="contact__form__title" data-aos="zoom-in">
+                                            <h2 style="color: blanchedalmond;padding-right: 10%;"> comments</h2>
+                                        </div>
+                                        <div id="yo">
+
+                                        </div>
+                                      </div>
+                            
+                            
+                            
+                            
+                            
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>
                         </div>
                     </div>
                 </div>

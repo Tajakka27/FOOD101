@@ -7,7 +7,10 @@
     Created: Colorlib
 ---------------------------------------------------------  */
 
+
+
 'use strict';
+
 
 (function ($) {
 
@@ -26,7 +29,8 @@
             $(this).addClass('active');
         });
         if ($('.featured__filter').length > 0) {
-            var containerEl = document.querySelector('.featured__filter');
+            var 
+            El = document.querySelector('.featured__filter');
             var mixer = mixitup(containerEl);
         }
     });
@@ -158,6 +162,7 @@
         autoHeight: false,
         autoplay: true
     });
+   
 
     /*-----------------------
 		Price Range Slider
@@ -180,6 +185,7 @@
     minamount.val('$' + rangeSlider.slider("values", 0));
     maxamount.val('$' + rangeSlider.slider("values", 1));
 
+    
     /*--------------------------
         Select
     ----------------------------*/
@@ -202,6 +208,8 @@
     /*-------------------
 		Quantity change
 	--------------------- */
+    
+    
     var proQty = $('.pro-qty');
     proQty.prepend('<span class="dec qtybtn">-</span>');
     proQty.append('<span class="inc qtybtn">+</span>');
